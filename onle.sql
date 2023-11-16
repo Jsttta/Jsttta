@@ -33,6 +33,17 @@ create table Account
  constraint fk_sting_sting_id foreign key (sting_id) references sting(id)
  );
 
+create table Orderstatys
+(id bigint primary key ,
+ name varchar not null ,
+ goods_id bigint not null ,
+ billing_address numeric not null default 0,
+  shipped numeric not null default 0,
+  delverd numeric not null default 0,
+ get numeric not null default 0,
+  price numeric not null default 0,
+ constraint fk_goods_goods_id foreign key (goods_id) references goods(id)
+ );
 
 
 CREATE TABLE IF NOT EXISTS public.product
