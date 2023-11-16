@@ -31,14 +31,18 @@ Characteristics numeric not null default 0,
 
 
 
-create table Tabl
-(id bigint primary key ,
- shopping_cart_id bigint not null ,
- price varchar not null ,
- Description numeric not null default 0,
- constraint fk_shopping_cart_shopping_cart_id foreign key (shopping_cart_id) references shopping_cart(id)
- );
+CREATE TABLE IF NOT EXISTS public.goods
+(
+    id bigint NOT NULL,
+    price character varying COLLATE pg_catalog."default" NOT NULL,
+    data numeric NOT NULL DEFAULT 0,
+    CONSTRAINT goods_pkey PRIMARY KEY (id)
+)
 
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.goods
+    OWNER to postgres;
 
 create table Tabl
 (id bigint primary key ,
