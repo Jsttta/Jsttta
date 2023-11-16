@@ -4,6 +4,19 @@ create table Users
   Password integer not null default 10,
   state varchar
   );
+CREATE TABLE userss
+(   id bigint NOT NULL,
+    name character varying COLLATE pg_catalog."default" NOT NULL,
+    password integer NOT NULL DEFAULT 10,
+    state character varying COLLATE pg_catalog."default",
+    CONSTRAINT userss_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.userss
+    OWNER to postgres;
+
   create table Customer
 (id bigint primary key ,
  name varchar not null ,
@@ -58,5 +71,15 @@ create table Tabl
 (id bigint primary key ,
  name varchar not null ,
  Appliances numeric not null default 0,
+
+    create table orderss
+(id bigint primary key ,
+ name varchar not null ,
+ account_id bigint not null ,
+ date numeric not null default 0,
+ order_status  bigint not null default 0,
+ constraint fk_account_account_id foreign key (account_id) references account(id)
+ );
+
  Smarthoes numeric not null default 0,
  Entertainment numeric not null default 0);
