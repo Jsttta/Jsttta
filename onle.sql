@@ -27,20 +27,33 @@ create table Account
  name varchar not null ,
  sting_id bigint not null ,
  billing_address numeric not null default 0,
+  orders numeric NOT NULL DEFAULT 0,
+  username numeric NOT NULL DEFAULT 0,
+  city numeric NOT NULL DEFAULT 0,
  constraint fk_sting_sting_id foreign key (sting_id) references sting(id)
  );
 
 
 
-create table Product
-(id bigint primary key ,
- Goods_id bigint not null ,
- price varchar not null ,
- Description numeric not null default 0,
- Reviews numeric not null default 0,
-Characteristics numeric not null default 0,
- constraint fk_Goods_Goods_id foreign key (Goods_id) references Goods(id)
- );
+CREATE TABLE IF NOT EXISTS public.product
+(
+    id bigint NOT NULL,
+    goods_id bigint NOT NULL,
+    price character varying COLLATE pg_catalog."default" NOT NULL,
+    description numeric NOT NULL DEFAULT 0,
+    reviews numeric NOT NULL DEFAULT 0,
+    characteristics numeric NOT NULL DEFAULT 0,
+    CONSTRAINT product_pkey PRIMARY KEY (id),
+    CONSTRAINT fk_goods_goods_id FOREIGN KEY (goods_id)
+        REFERENCES public.goods (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.product
+    OWNER to postgres;
 
 
 
