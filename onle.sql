@@ -135,19 +135,17 @@ insert into Users values (7, 'anggas','7947372753');
 insert into Users values (8, 'vfgs','79462575321'); 
 insert into Users values (9, 'atan43','79563956493'); 
 insert into Users values (10, 'sddal','79573817374');
-
 create table Account ( id bigint primary key, name varchar(16), city text, orders_id int, purchase history text );
 
-insert into Users values (1, 'asdfd','Bucharest',); 
-insert into Users values (2, 'agrsav','Cadiz'); 
-insert into Users values (3, 'asdgd','Guatemala'); 
-insert into Users values (4, 'vdfgd','Geneva'); 
-insert into Users values (5, 'cadgrerte','Guatemala'); 
-insert into Users values (6, 'vjonj','Bucharest'); 
-insert into Users values (7, 'anggas','Geneva'); 
-insert into Users values (8, 'vfgs','Bucharest'); 
-insert into Users values (9, 'atan43','Geneva'); 
-insert into Users values (10, 'sddal','Guatemala');
-
+insert into Users values (1, 'asdfd','Bucharest','18.08.1992); 
+insert into Users values (2, 'agrsav','Cadiz','14.03.2015); 
+insert into Users values (3, 'asdgd','Guatemala','13.08.2006); 
+insert into Users values (4, 'vdfgd','Geneva','16.05.2002); 
+insert into Users values (5, 'cadgrerte','Guatemala','31.08.1978); 
+insert into Users values (6, 'vjonj','Bucharest','04.08.2005); 
+insert into Users values (7, 'anggas','Geneva','27.10.1974); 
+insert into Users values (8, 'vfgs','Bucharest','20.02.1995); 
+insert into Users values (9, 'atan43','Geneva','04.09.1975); 
+insert into Users values (10, 'sddal','Guatemala','06.12.1997);
 
 
