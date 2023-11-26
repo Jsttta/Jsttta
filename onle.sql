@@ -149,3 +149,18 @@ insert into Users values (9, 'atan43','Geneva','04.09.1975);
 insert into Users values (10, 'sddal','Guatemala','06.12.1997);
 
 
+
+insert into products values (1, 'telephone',null,1); 
+insert into products values (2, 'a computer',null,1); 
+insert into products values (3, 'teapot',null,1); 
+insert into products values (4, 'tablet',null,1); 
+insert into products values (5, 'column',null,1);
+insert into products values (6, 'smart watch',556,3); 
+insert into products values (7, 'fridge',2698,3); 
+insert into products values (8, 'headphones',633,3); 
+insert into products values (9, 'microphone',784,3); 
+insert into products values (10, 'nuke',334,3); 
+insert into products values (11, 'iron',1500,3);
+insert into products values (12, 'multicooker',385,3); 
+
+
