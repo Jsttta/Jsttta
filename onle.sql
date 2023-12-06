@@ -109,20 +109,6 @@ create table Tabl
  Entertainment numeric not null default 0);
 
 
-create table account ( id bigint primary key, login varchar(10), purchase histori text, 
-					  orders text, city text );
-
-insert into Users values (1, 'artemm','telephone','TV','Australia'); 
-insert into Users values (2, 'artemds','kettle','watch'); 
-insert into Users values (3, 'art5476','smart watch','music column'); 
-insert into Users values (4, 'haideng','case for phone'); 
-insert into Users values (5, 'control','ryhftdhjdhj'); 
-insert into Users values (6, 'povelitel','dhdxfhtuwarf'); 
-insert into Users values (7, 'anton','dshdfghftj'); 
-insert into Users values (8, 'arte5577','dhmflthjnifo'); 
-insert into Users values (9, 'agent228','djnhglkdftjh'); 
-insert into Users values (10, 'skill555','dlhjygdftoiuyhmd');
-
 create table Users
 ( id bigint primary key, login varchar(16), password text );
 insert into Users values (1, 'asdfd','7927374621'); 
@@ -135,6 +121,7 @@ insert into Users values (7, 'anggas','7947372753');
 insert into Users values (8, 'vfgs','79462575321'); 
 insert into Users values (9, 'atan43','79563956493'); 
 insert into Users values (10, 'sddal','79573817374');
+
 create table Account ( id bigint primary key, name varchar(16), city text, orders_id int, purchase history text );
 
 insert into Users values (1, 'asdfd','Bucharest','18.08.1992); 
