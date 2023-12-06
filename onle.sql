@@ -58,3 +58,19 @@ WHERE
   price > 10.0;
 
 CREATE INDEX btree_price_index ON menu (price);
+
+
+CREATE TABLE basket (
+    id INT PRIMARY KEY NOT NULL,
+    menu_id INT,
+    userss_id INT,
+    amount INT,
+    CONSTRAINT fk_menu_menu_id FOREIGN KEY (menu_id) REFERENCES menu (id),
+    CONSTRAINT fk_userss_userss_id FOREIGN KEY (userss_id) REFERENCES userss (id)
+);
+
+INSERT INTO basket VALUES (1, 1, 1, 1);
+INSERT INTO basket VALUES (2, 2, 2, 2);
+INSERT INTO basket VALUES (3, 3, 3, 3);
+INSERT INTO basket VALUES (4, 4, 4, 4);
+INSERT INTO basket VALUES (5, 1, 5, 5);
