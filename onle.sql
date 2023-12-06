@@ -1,153 +1,60 @@
-create table Users
-( id bigint primary key ,
-  name varchar not null,
-  Password integer not null default 10,
-  state varchar
-  );
-CREATE TABLE userss
-(   id bigint NOT NULL,
-    name character varying COLLATE pg_catalog."default" NOT NULL,
-    password integer NOT NULL DEFAULT 10,
-    state character varying COLLATE pg_catalog."default",
-    CONSTRAINT userss_pkey PRIMARY KEY (id)
-)
+CREATE TABLE  (
+    id INT PRIMARY KEY NOT NULL,
+    first_name TEXT,
+    second_name TEXT,
+    birth_date DATE,
+    number VARCHAR(12),
+    email VARCHAR(64)
+);
 
-TABLESPACE pg_default;
+INSERT INTO client VALUES (1, 'Din', "asdfd" ,	"2005-07-28" ,	"7927374621"	, 'Din-8622@yopmail.com');
+INSERT INTO client VALUES (2, 'luy', "agrsav"	, "1999-11-16" ,	"79463846483" ,	"luy-ogugahe2@yahoo.com");
+INSERT INTO client VALUES (3, 'Vadim',"asdgd" ,	"1988-06-24" ,	"7947574423" ,	"Vadim-abonu29@mail.com");
+INSERT INTO client VALUES (4, 'Victoria', "vdfgd" ,	"1998-01-19" ,	"7946586424" ,	"Victoria-97@yahoo.com");
+INSERT INTO client VALUES (5, 'Pim',"sddal" ,	"1978-10-20" ,	"79563956493" ,	"pim-enuceno80@outlook.com");
 
-ALTER TABLE IF EXISTS public.userss
-    OWNER to postgres;
+CREATE TABLE category (
+    id INT PRIMARY KEY NOT NULL,
+    category_title VARCHAR(64)
+);
 
-  create table Customer
-(id bigint primary key ,
- name varchar not null ,
- E_Mail numeric not null default 0);
-
-create table Account
-(id bigint primary key ,
- name varchar not null ,
- sting_id bigint not null ,
- billing_address numeric not null default 0,
-  orders numeric NOT NULL DEFAULT 0,
-  username numeric NOT NULL DEFAULT 0,
-  city numeric NOT NULL DEFAULT 0,
- constraint fk_sting_sting_id foreign key (sting_id) references sting(id)
- );
-
-create table Orderstatys
-(id bigint primary key ,
- name varchar not null ,
- goods_id bigint not null ,
- billing_address numeric not null default 0,
-  shipped numeric not null default 0,
-  delverd numeric not null default 0,
- get numeric not null default 0,
-  price numeric not null default 0,
- constraint fk_goods_goods_id foreign key (goods_id) references goods(id)
- );
-
-
-CREATE TABLE IF NOT EXISTS public.product
-(
-    id bigint NOT NULL,
-    goods_id bigint NOT NULL,
-    price character varying COLLATE pg_catalog."default" NOT NULL,
-    description numeric NOT NULL DEFAULT 0,
-    reviews numeric NOT NULL DEFAULT 0,
-    characteristics numeric NOT NULL DEFAULT 0,
-    CONSTRAINT product_pkey PRIMARY KEY (id),
-    CONSTRAINT fk_goods_goods_id FOREIGN KEY (goods_id)
-        REFERENCES public.goods (id) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-)
-
-TABLESPACE pg_default;
-
-ALTER TABLE IF EXISTS public.product
-    OWNER to postgres;
+INSERT INTO category VALUES (1, 'KITCHEN APPLIANCES');
+INSERT INTO category VALUES (2, 'MELECTRONICS');
+INSERT INTO category VALUES (3, 'HOBII');
 
 
 
-CREATE TABLE IF NOT EXISTS public.goods
-(
-    id bigint NOT NULL,
-    price character varying COLLATE pg_catalog."default" NOT NULL,
-    data numeric NOT NULL DEFAULT 0,
-    CONSTRAINT goods_pkey PRIMARY KEY (id)
-)
+CREATE TABLE menu (
+    id INT PRIMARY KEY NOT NULL,
+    dish_title TEXT,
+    price FLOAT,
+    description TEXT,
+    category_id INT,
+    CONSTRAINT fk_category_category_id FOREIGN KEY (category_id) REFERENCES category (id)
+	);
+	
+INSERT INTO menu VALUES (1, ' POCO M5', 12000, 'ядер - 8x(2.2 ГГц), 4 ГБ, 2 SIM, IPS, 2408x1080, камера 50+2+2 Мп, NFC, 4G, GPS, FM, 5000 мА*ч', 1);
+INSERT INTO menu VALUES (2, 'Apple iPhone 15 Pro', 17000, 'ядер - 6x(3.78 ГГц), 8 ГБ, 2 SIM, OLED, 2556x1179, камера 48+12+12 Мп, NFC, 5G, GPS, 3274 мА*ч', 1);
+INSERT INTO menu VALUES (3, 'HUAWEI MatePad', 49000, '2200х1440, IPS, 8x2.4 ГГц, 8 ГБ, 7700 мА*ч, HarmonyOS 3.1', 1);
+INSERT INTO menu VALUES (4, 'Lenovo Xiaoxin Pad', 41000, '2000x1200, IPS, 8x2.4 ГГц, 4 ГБ, 7500 мА*ч, Android 12.x', 1);
+-- Fix incorrect values in the following INSERT statements
+INSERT INTO menu VALUES (5, 'ATLANT ХМ-4010-022', 25000, '264 л, внешнее покрытие-пластик, размораживание - ручное, 60 см х 161 см х 62.5 см ', 2);
+INSERT INTO menu VALUES (6, 'DEXP EL-90', 11000, '23 л, 900 Вт, переключатели - сенсор, дисплей, 48.2 см x 27.6 см x 36 см', 2);
+INSERT INTO menu VALUES (7, 'MSI Modern 14', 80000, 'Full HD (1920x1080), IPS, Intel Core i3-1215U, ядра: 2 + 4 х 1.2 ГГц, RAM 8 ГБ, SSD 256 ГБ, Intel UHD Graphics ', 1);
+INSERT INTO menu VALUES (8, 'HyperX QuadCast S', 17000, 'проводной, настольный, -36 дБ, от 20 Гц до 20000 Гц, кабель - 300 см, jack 3.5 мм, USB', 3);
+INSERT INTO menu VALUES (9, 'Sony Alpha 7 III', 40000, '25.3 Мп, 35.6 x 23.8 мм, CMOS, 100-51200 ISO, 10 кадр./сек, экран - наклонный, сенсорный', 3);
+INSERT INTO menu VALUES (10, 'Starwind SKG2217', 15000, '1.8 л, 2200 Вт, скрытый нагревательный элемент, фильтр, материал корпуса - стекло\пластик', 2);
 
-TABLESPACE pg_default;
+CREATE VIEW ExpensiveDishes AS
+SELECT
+  id,
+  dish_title,
+  price,
+  description,
+  category_id
+FROM
+  menu
+WHERE
+  price > 10.0;
 
-ALTER TABLE IF EXISTS public.goods
-    OWNER to postgres;
-
-create table Tabl
-(id bigint primary key ,
- Goods_id bigint not null ,
- price varchar not null ,
- Description numeric not null default 0,
- constraint fk_Goods_Goods_id foreign key (Goods_id) references Goods(id)
- );
-
-
-
-  create table Menu 
-(id bigint primary key ,
- name varchar not null ,
- Appliances numeric not null default 0,
-
-    create table orderss
-(id bigint primary key ,
- name varchar not null ,
- account_id bigint not null ,
- date numeric not null default 0,
- order_status  bigint not null default 0,
- constraint fk_account_account_id foreign key (account_id) references account(id)
- );
-
- Smarthoes numeric not null default 0,
- Entertainment numeric not null default 0);
-
-
-create table Users
-( id bigint primary key, login varchar(16), password text );
-insert into Users values (1, 'asdfd','7927374621'); 
-insert into Users values (2, 'agrsav','7936472387'); 
-insert into Users values (3, 'asdgd','79463846483'); 
-insert into Users values (4, 'vdfgd','7937462634'); 
-insert into Users values (5, 'cadgrerte','7947574423'); 
-insert into Users values (6, 'vjonj','7946586424'); 
-insert into Users values (7, 'anggas','7947372753'); 
-insert into Users values (8, 'vfgs','79462575321'); 
-insert into Users values (9, 'atan43','79563956493'); 
-insert into Users values (10, 'sddal','79573817374');
-
-create table Account ( id bigint primary key, name varchar(16), city text, orders_id int, purchase history text );
-
-insert into Users values (1, 'asdfd','Bucharest','18.08.1992); 
-insert into Users values (2, 'agrsav','Cadiz','14.03.2015); 
-insert into Users values (3, 'asdgd','Guatemala','13.08.2006); 
-insert into Users values (4, 'vdfgd','Geneva','16.05.2002); 
-insert into Users values (5, 'cadgrerte','Guatemala','31.08.1978); 
-insert into Users values (6, 'vjonj','Bucharest','04.08.2005); 
-insert into Users values (7, 'anggas','Geneva','27.10.1974); 
-insert into Users values (8, 'vfgs','Bucharest','20.02.1995); 
-insert into Users values (9, 'atan43','Geneva','04.09.1975); 
-insert into Users values (10, 'sddal','Guatemala','06.12.1997);
-
-
-
-insert into products values (1, 'telephone',null,1); 
-insert into products values (2, 'a computer',null,1); 
-insert into products values (3, 'teapot',null,1); 
-insert into products values (4, 'tablet',null,1); 
-insert into products values (5, 'column',null,1);
-insert into products values (6, 'smart watch',556,3); 
-insert into products values (7, 'fridge',2698,3); 
-insert into products values (8, 'headphones',633,3); 
-insert into products values (9, 'microphone',784,3); 
-insert into products values (10, 'nuke',334,3); 
-insert into products values (11, 'iron',1500,3);
-insert into products values (12, 'multicooker',385,3); 
-
-
+CREATE INDEX btree_price_index ON menu (price);
