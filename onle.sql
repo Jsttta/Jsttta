@@ -74,3 +74,16 @@ INSERT INTO basket VALUES (2, 2, 2, 2);
 INSERT INTO basket VALUES (3, 3, 3, 3);
 INSERT INTO basket VALUES (4, 4, 4, 4);
 INSERT INTO basket VALUES (5, 1, 5, 5);
+
+
+
+
+CREATE TABLE public.orders (
+    id bigint NOT NULL,
+    status integer DEFAULT 0 NOT NULL,
+    customer_id bigint NOT NULL,
+    paid boolean DEFAULT false NOT NULL,
+    deleted_at timestamp without time zone,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
