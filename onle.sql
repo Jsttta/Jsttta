@@ -1,4 +1,4 @@
-CREATE TABLE  (
+CREATE TABLE Users (
     id INT PRIMARY KEY NOT NULL,
     first_name TEXT,
     second_name TEXT,
@@ -6,12 +6,11 @@ CREATE TABLE  (
     number VARCHAR(12),
     email VARCHAR(64)
 );
-
-INSERT INTO client VALUES (1, 'Din', "asdfd" ,	"2005-07-28" ,	"7927374621"	, 'Din-8622@yopmail.com');
-INSERT INTO client VALUES (2, 'luy', "agrsav"	, "1999-11-16" ,	"79463846483" ,	"luy-ogugahe2@yahoo.com");
-INSERT INTO client VALUES (3, 'Vadim',"asdgd" ,	"1988-06-24" ,	"7947574423" ,	"Vadim-abonu29@mail.com");
-INSERT INTO client VALUES (4, 'Victoria', "vdfgd" ,	"1998-01-19" ,	"7946586424" ,	"Victoria-97@yahoo.com");
-INSERT INTO client VALUES (5, 'Pim',"sddal" ,	"1978-10-20" ,	"79563956493" ,	"pim-enuceno80@outlook.com");
+INSERT INTO  Users VALUES (1, 'Din', 'asdfd',	'2005-07-28',	'7927374621', 'Din-8622@yopmail.com');
+INSERT INTO  Users VALUES (2, 'luy', 'agrsav'	, '1999-11-16' ,	'79463846483' ,	'luy-ogugahe2@yahoo.com');
+INSERT INTO  Users VALUES (3, 'Vadim','asdgd' ,	'1988-06-24' ,	'7947574423' ,	'Vadim-abonu29@mail.com');
+INSERT INTO  Users VALUES (4, 'Victoria','vdfgd',	'1998-01-19' ,	'7946586424' ,	'Victoria-97@yahoo.com');
+INSERT INTO  Users VALUES (5, 'Pim','sddal',	'1978-10-20' ,	'79563956493' ,	'pim-enuceno80@outlook.com');
 
 CREATE TABLE category (
     id INT PRIMARY KEY NOT NULL,
